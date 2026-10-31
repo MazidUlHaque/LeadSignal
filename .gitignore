@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# large or private data stays out of the repository
+*.parquet
+stage1/
+exports/

@@ -1,0 +1,6 @@
+concept_id,event_period,event_type,layer,source_citation,citation_status,notes
+transformer_architectures,2018Q4,adoption,known_shift,"Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT. NAACL-HLT 2019 (arXiv release October 2018)",sourced,"Release of BERT; used to check the arXiv signal detects a documented shift (RQ1), not as a curriculum event"
+large_language_models,2022Q4,adoption,known_shift,"OpenAI. (2022, November 30). Introducing ChatGPT.",sourced,Public release of ChatGPT; documented field-wide shift (RQ1 check)
+pytorch,2019Q3,adoption,known_shift,,requires_citation,PyTorch overtakes TensorFlow in research use; needs a citable source and confirmed quarter
+kubernetes,2019Q2,adoption,known_shift,,requires_citation,Kubernetes becomes the default orchestration platform; needs a citable source
+mlops,2021Q1,adoption,known_shift,,requires_citation,MLOps formalised as a practice; needs a citable source and confirmed quarter

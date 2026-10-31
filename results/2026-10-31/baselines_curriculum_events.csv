@@ -1,0 +1,4 @@
+variant,events_total,events_evaluable,events_detected,detection_rate,median_lead_quarters,median_lead_ci_low,median_lead_ci_high,share_positive_lead,negative_controls,false_alarm_rate
+"method (share, detrended)",15,13,6,0.46154,11.5,1.0,31.0,0.83333,6,0.66667
+"baseline 1: share, no detrending",15,13,9,0.69231,21.0,7.0,35.0,1.0,6,1.0
+baseline 2: raw counts,15,13,12,0.92308,22.0,17.0,32.0,1.0,6,1.0

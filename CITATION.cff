@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or its data, please cite it as below."
+title: "LeadSignal-CS: measuring the lag between research attention and computing curriculum adoption"
+authors:
+  - family-names: "Mazid-Ul-Haque"
+    given-names: "Md."
+    affiliation: "American International University-Bangladesh (AIUB)"
+version: "0.1.1"
+date-released: "2026-10-31"
+license: MIT
+repository-code: "https://github.com/MazidUlHaque/LeadSignal"
+keywords:
+  - emerging topics
+  - computing curricula
+  - arXiv
+  - trend detection
+  - science of science

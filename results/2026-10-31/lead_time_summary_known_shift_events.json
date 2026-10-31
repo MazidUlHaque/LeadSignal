@@ -1,0 +1,12 @@
+{
+  "events_total": 2,
+  "events_evaluable": 2,
+  "events_detected": 1,
+  "detection_rate": 0.5,
+  "median_lead_quarters": 3.0,
+  "median_lead_ci_low": 3.0,
+  "median_lead_ci_high": 3.0,
+  "share_positive_lead": 1.0,
+  "negative_controls": 0,
+  "false_alarm_rate": NaN
+}

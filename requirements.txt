@@ -1,0 +1,7 @@
+# All preinstalled on Google Colab. Nothing else is required.
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+pyarrow>=12     # parquet files; the code falls back to gzip CSV if missing
+# Optional, only for cross-checking the trend test in tests:
+# pymannkendall

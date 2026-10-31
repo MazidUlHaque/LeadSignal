@@ -1,0 +1,3 @@
+curriculum,concepts_compared,percent_agreement,cohen_kappa,disagreements
+CS2013,50,0.98,0.9665775401069518,data_engineering
+CS2023,50,0.96,0.9040307101727446,"data_engineering, mlops"

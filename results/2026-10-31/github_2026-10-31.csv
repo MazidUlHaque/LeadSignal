@@ -1,0 +1,17 @@
+concept_id,period,count,total,share,incomplete,source,snapshot_date
+algorithms,2017,2325,10545734,0.00022,False,github,2026-10-31
+algorithms,2018,2582,13153407,0.0002,False,github,2026-10-31
+algorithms,2019,3336,15594325,0.00021,False,github,2026-10-31
+algorithms,2020,4875,21225455,0.00023,False,github,2026-10-31
+algorithms,2021,4819,27694436,0.00017,False,github,2026-10-31
+algorithms,2022,5240,33461319,0.00016,False,github,2026-10-31
+algorithms,2023,4572,38044710,0.00012,False,github,2026-10-31
+algorithms,2024,4352,43089107,0.0001,False,github,2026-10-31
+algorithms,2025,4429,58200204,8e-05,False,github,2026-10-31
+algorithms,2026,7736,77043728,0.0001,False,github,2026-10-31
+data_structures,2017,1730,10545734,0.00016,False,github,2026-10-31
+data_structures,2018,2143,13153407,0.00016,False,github,2026-10-31
+data_structures,2019,2404,15594325,0.00015,False,github,2026-10-31
+data_structures,2020,3595,21225455,0.00017,False,github,2026-10-31
+data_structures,2021,3943,27694436,0.00014,False,github,2026-10-31
+data_structures,2022,4627,33461319,0.00014,False,github,2026-10-31
