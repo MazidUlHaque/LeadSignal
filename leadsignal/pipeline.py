@@ -270,6 +270,8 @@ def audit_precision(cfg: Config) -> pd.DataFrame:
     rows = []
     folder = Path(cfg.data_dir) / "audit"
     for p in sorted(list(folder.glob("*.xlsx")) + list(folder.glob("*.csv"))):
+        if p.stem not in LEXICON:      # skip helper files such as human_check_150.xlsx
+            continue
         df = pd.read_excel(p) if p.suffix == ".xlsx" else pd.read_csv(p)
         judged = pd.to_numeric(df["relevant"], errors="coerce").dropna()
         rows.append({"concept_id": p.stem, "judged": len(judged),

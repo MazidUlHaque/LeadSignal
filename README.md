@@ -41,6 +41,7 @@ Corpus: 501,503 arXiv papers in cs.AI, cs.LG, cs.CL, cs.CY, cs.SE and cs.CR, fir
 | RQ2: baselines | Shares without detrending: 9 of 13 detected, 6 of 6 false alarms. Raw counts: 12 of 13 detected, 6 of 6 false alarms |
 | RQ3: volatility classes | Kruskal-Wallis H = 8.11, p = 0.017; median variance of growth 0.31 (stable), 0.41 (moderate), 0.81 (volatile) |
 | RQ4: OpenAlex agreement | Weak: median Spearman rho 0.10 across 50 concepts |
+| Matching precision | 60% of 1,500 sampled matches judged relevant (AI judge; blind human check of 150 pending); 0.44 stable, 0.73 moderate, 0.60 volatile concepts |
 
 These are mixed results and the article reports them as such. Detected adoptions came early, but
 sensitivity is low and most negative controls also rose. Without field detrending every control
@@ -93,7 +94,8 @@ python run_leadsignal.py analyse  --data-dir $D --events $D/ground_truth/curricu
 
 ## Known gaps
 
-- The hand precision audit of concept matching (notebook section 11) is not yet complete.
+- Concept-matching precision was audited on 1,500 sampled matches by an AI model (see
+  `results/2026-10-31/audit/`); the author's blind check of 150 of them is pending.
 - The GitHub snapshot stopped at the unauthenticated rate limit after two concepts, so the
   practitioner channel was not evaluated.
 - The arXiv update beyond 21 August 2026 was not run because arXiv's OAI-PMH list requests timed out
@@ -116,3 +118,5 @@ See `CITATION.cff`. Please cite the article once published.
   position date; `storage` mode.
 - 2026-10-31: a stored arXiv resumption token that times out now falls back to the checkpoint date.
   Full analysis run; results added under `results/2026-10-31/`.
+- 2026-10-31: precision audit of 1,500 matches added (`results/2026-10-31/audit/`); the
+  `precision` mode now skips helper files in the audit folder.

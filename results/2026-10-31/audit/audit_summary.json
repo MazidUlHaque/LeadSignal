@@ -1,0 +1,15 @@
+{
+  "judge": "Claude (Anthropic), title and abstract only",
+  "date": "2026-10-31",
+  "papers": 1500,
+  "relevant": 905,
+  "precision_pooled": 0.6033,
+  "precision_median_concept": 0.6333,
+  "by_volatility_pooled": {
+    "moderate": 0.73,
+    "stable": 0.4356,
+    "volatile": 0.6022
+  },
+  "without_tools_pooled": 0.6333,
+  "human_check": "pending (150 papers, blind)"
+}
