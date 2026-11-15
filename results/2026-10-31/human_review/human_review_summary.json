@@ -1,0 +1,25 @@
+{
+  "papers": 150,
+  "sets": 15,
+  "reviewers": 15,
+  "agreement": 0.773,
+  "cohen_kappa": 0.51,
+  "kappa_bootstrap_95ci": [
+    0.36,
+    0.64
+  ],
+  "ai_relevant_share": 0.58,
+  "human_relevant_share": 0.727,
+  "crosstab_ai_by_human": {
+    "ai0_human0": 35,
+    "ai0_human1": 28,
+    "ai1_human0": 6,
+    "ai1_human1": 81
+  },
+  "agreement_by_class": {
+    "moderate": 0.83,
+    "stable": 0.62,
+    "volatile": 0.84
+  },
+  "calibrated_precision_1500": 0.74
+}

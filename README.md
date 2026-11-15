@@ -1,12 +1,13 @@
 # LeadSignal-CS
 
-**Does research attention anticipate curriculum change?** LeadSignal-CS measures how research
+**Beyond raw trends: detrended arXiv research attention as an early signal of curriculum change.**
+LeadSignal-CS measures how research
 attention to 50 computing concepts moves on arXiv, relative to the rest of the field, and tests
 whether a confirmed rise comes before the concept is adopted into the ACM/IEEE-CS/AAAI computer
 science curriculum guidelines (CS2013 to CS2023).
 
 Author: Md. Mazid-Ul-Haque, Department of Computer Science, American International
-University-Bangladesh (AIUB). A journal article based on this repository is in preparation.
+University-Bangladesh (AIUB). A journal article based on this repository is under preparation for submission.
 
 This repository holds the complete code, the concept lexicon, the curriculum mapping with its
 evidence, the result tables and the run logs of the analysis reported in the article, so that every
@@ -23,11 +24,14 @@ number can be traced and re-run.
 | `data/ground_truth/` | Documented field shifts (RQ1), the AI-drafted curriculum mapping and the mapping rules |
 | `tools/make_mapping_workbook.py` | Builds the mapping workbook used for the row-by-row check, or a blank one for a second coder |
 | `results/2026-10-31/` | Result tables, the author-checked curriculum mapping and the run log of the reported analysis |
+| `results/2026-10-31/audit/` | Precision audit: 1,500 sampled matches judged by an AI model, one workbook per concept |
+| `results/2026-10-31/human_review/` | Blind human check of 150 audited matches (15 workbooks of 10) and the AI-human agreement table |
+| `results/2026-10-31/matched_arxiv_ids.csv.gz` | The arXiv identifier of every matched paper with its concept, so the matching can be checked without the full paper table |
 | `RUNBOOK.md` | What to do when a run stops |
 
-The arXiv paper table itself (501,503 records, about 370 MB) is too large for GitHub. It will be
-archived with a DOI at Zenodo together with the release of this repository. It can be rebuilt from
-arXiv's open metadata with the `build` and `update` modes.
+The arXiv paper table itself (501,503 records, about 370 MB) is too large for GitHub. The list of
+matched arXiv identifiers is included instead, and the full table can be rebuilt from arXiv's open
+metadata (CC0) with the `build` and `update` modes.
 
 ## Main results (analysis run of 31 October 2026)
 
@@ -41,7 +45,7 @@ Corpus: 501,503 arXiv papers in cs.AI, cs.LG, cs.CL, cs.CY, cs.SE and cs.CR, fir
 | RQ2: baselines | Shares without detrending: 9 of 13 detected, 6 of 6 false alarms. Raw counts: 12 of 13 detected, 6 of 6 false alarms |
 | RQ3: volatility classes | Kruskal-Wallis H = 8.11, p = 0.017; median variance of growth 0.31 (stable), 0.41 (moderate), 0.81 (volatile) |
 | RQ4: OpenAlex agreement | Weak: median Spearman rho 0.10 across 50 concepts |
-| Matching precision | 60% of 1,500 sampled matches judged relevant (AI judge; blind human check of 150 pending); 0.44 stable, 0.73 moderate, 0.60 volatile concepts |
+| Matching precision | 60% of 1,500 sampled matches judged relevant by the AI judge (0.44 stable, 0.73 moderate, 0.60 volatile). Blind human check of 150: 77% agreement, Cohen's kappa 0.51; humans judged more matches relevant (73% vs 58%), giving a calibrated precision of about 0.74 |
 
 These are mixed results and the article reports them as such. Detected adoptions came early, but
 sensitivity is low and most negative controls also rose. Without field detrending every control
@@ -78,24 +82,26 @@ python run_leadsignal.py analyse  --data-dir $D --events $D/ground_truth/curricu
   2026).
 - **Pre-specification.** The rules for events, negative controls, detection and baselines are in the
   code and were fixed before any lead time against the curriculum was computed. The threshold grid is
-  reported in full rather than tuned.
+  reported in full; no value was tuned.
 - **Curriculum mapping.** For each concept, a first draft of its status in CS2013 and CS2023, with
   the knowledge area, tier, PDF page and exact supporting sentence, was prepared with the help of an AI
   assistant (`data/ground_truth/claude_draft_mapping.csv`). The author then checked every row against
   the two guideline documents and changed two decisions (data engineering and MLOps). The checked
   workbook is `results/2026-10-31/cs2013_cs2023_mapping.xlsx`. Agreement between draft and final
-  decisions was 98% (CS2013) and 96% (CS2023). Because the author checked a draft rather than
-  coding blind, this is not an independent reliability estimate; a blank workbook for a blind second
+  decisions was 98% (CS2013) and 96% (CS2023). Because the author saw the draft while checking it,
+  this is not an independent reliability estimate; a blank workbook for a blind second
   coder can be made with `tools/make_mapping_workbook.py --blank`.
-- **Use of AI assistance.** Claude (Anthropic) was used to write and test the code, to operate the
-  Colab notebook, to draft the curriculum mapping as described above, and to draft and edit the
-  article text. The research design, the decisions on the curriculum mapping and the responsibility
+- **Precision audit.** An AI model judged the relevance of 1,500 sampled matches (30 per concept).
+  Fifteen colleagues of the author each judged one set of ten of these papers without seeing the
+  model's labels and without AI tools (`results/2026-10-31/human_review/`).
+- **Use of AI assistance.** Claude (Anthropic) was used to implement the analysis code to the
+  author's design, to automate routine operation of the Colab notebook, to draft the curriculum
+  mapping as described above, to judge the papers of the precision audit, and to help draft and edit
+  the article text. The analysis was run in the author's own Colab environment. The research design, the decisions on the curriculum mapping and the responsibility
   for all content are the author's. The article states this in its declaration of AI use.
 
 ## Known gaps
 
-- Concept-matching precision was audited on 1,500 sampled matches by an AI model (see
-  `results/2026-10-31/audit/`); the author's blind check of 150 of them is pending.
 - The GitHub snapshot stopped at the unauthenticated rate limit after two concepts, so the
   practitioner channel was not evaluated.
 - The arXiv update beyond 21 August 2026 was not run because arXiv's OAI-PMH list requests timed out
@@ -120,3 +126,5 @@ See `CITATION.cff`. Please cite the article once published.
   Full analysis run; results added under `results/2026-10-31/`.
 - 2026-10-31: precision audit of 1,500 matches added (`results/2026-10-31/audit/`); the
   `precision` mode now skips helper files in the audit folder.
+- 2026-11-15: blind human check of 150 audited matches and the AI-human agreement table added
+  (`results/2026-10-31/human_review/`); list of matched arXiv identifiers added. Release v1.0.
